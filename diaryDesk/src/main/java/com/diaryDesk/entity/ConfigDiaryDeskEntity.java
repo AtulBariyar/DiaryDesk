@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "config_journal_app")
+@Document(collection = "config_DiaryDesk")
 @Data
 @NoArgsConstructor
 public class ConfigDiaryDeskEntity {

@@ -1,13 +1,13 @@
 package com.diaryDesk.entity;
 
 import lombok.*;
-import com.diaryDesk.enums.Sentiment;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
-@Document(collection = "journal_entries")
+@Document(collection = "diary_entries")
 @Data
 @NoArgsConstructor
 public class DiaryEntry {
@@ -17,5 +17,4 @@ public class DiaryEntry {
     private String title;
     private String content;
     private LocalDateTime date;
-    private Sentiment sentiment;
-}
+    }

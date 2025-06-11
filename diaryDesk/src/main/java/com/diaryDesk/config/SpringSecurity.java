@@ -28,7 +28,7 @@ public class SpringSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/journal/**", "/user/**").authenticated()
+                .antMatchers("/diarydesk/**", "/user/**").authenticated()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().permitAll();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().csrf().disable();

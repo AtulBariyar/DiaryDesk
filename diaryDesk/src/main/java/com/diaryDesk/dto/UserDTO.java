@@ -16,7 +16,7 @@ public class UserDTO {
     @Schema(description = "The user's username")
     private String userName;
     private String email;
-    private boolean sentimentAnalysis;
+
     @NotEmpty
     private String password;
 }

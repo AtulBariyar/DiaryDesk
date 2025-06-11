@@ -21,15 +21,15 @@ public class SwaggerConfig {
     public OpenAPI myCustomConfig(){
         return new OpenAPI()
                 .info(
-                new Info().title("Journal App APIs")
-                        .description("By Vipul")
+                new Info().title("DiaryDesk App APIs")
+                        .description("By Atul")
                 )
                 .servers(Arrays.asList(new Server().url("http://localhost:8081").description("local"),
                         new Server().url("http://localhost:8082").description("live")))
                 .tags(Arrays.asList(
                         new Tag().name("Public APIs"),
                         new Tag().name("User APIs"),
-                        new Tag().name("Journal APIs"),
+                        new Tag().name("DiaryDesk APIs"),
                         new Tag().name("Admin APIs")
                 ))
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))

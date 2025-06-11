@@ -18,8 +18,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/journal")
-@Tag(name = "Journal APIs")
+@RequestMapping("/diarydesk")
+@Tag(name = "DiaryDesk APIs")
 public class DiaryEntryController {
 
     @Autowired
@@ -29,12 +29,12 @@ public class DiaryEntryController {
     private UserService userService;
 
     @GetMapping
-    @Operation(summary = "Get all journal entries of a user")
+    @Operation(summary = "Get all diary entries of a user")
     public ResponseEntity<?> getAllJournalEntriesOfUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         User user = userService.findByUserName(userName);
-        List<DiaryEntry> all = user.getJournalEntries();
+        List<DiaryEntry> all = user.getDiaryEntries();
         if (all != null && !all.isEmpty()) {
             return new ResponseEntity<>(all, HttpStatus.OK);
         }
@@ -59,7 +59,7 @@ public class DiaryEntryController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         User user = userService.findByUserName(userName);
-        List<DiaryEntry> collect = user.getJournalEntries().stream().filter(x -> x.getId().equals(objectId)).collect(Collectors.toList());
+        List<DiaryEntry> collect = user.getDiaryEntries().stream().filter(x -> x.getId().equals(objectId)).collect(Collectors.toList());
         if (!collect.isEmpty()) {
             Optional<DiaryEntry> journalEntry = diaryEntryService.findById(objectId);
             if (journalEntry.isPresent()) {
@@ -86,7 +86,7 @@ public class DiaryEntryController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName();
         User user = userService.findByUserName(userName);
-        List<DiaryEntry> collect = user.getJournalEntries().stream().filter(x -> x.getId().equals(myId)).collect(Collectors.toList());
+        List<DiaryEntry> collect = user.getDiaryEntries().stream().filter(x -> x.getId().equals(myId)).collect(Collectors.toList());
         if (!collect.isEmpty()) {
             Optional<DiaryEntry> journalEntry = diaryEntryService.findById(myId);
             if (journalEntry.isPresent()) {
